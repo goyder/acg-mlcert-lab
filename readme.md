@@ -2,6 +2,14 @@
 
 The purpose of this project is to capture the ACloud Guru modelling lab.
 
+## Set-up
+
+To use these scripts, we will need to set the following environment variables:
+
+* `s3_bucket`: Name of the S3 bucket to put contents in 
+* `s3_region`: Region of the S3 bucket to put results in
+* `sm_role`: Name of the role for SageMaker to use
+
 ## Process
 
 Within this lab, we wish to:
