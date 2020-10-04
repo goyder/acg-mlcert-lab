@@ -8,12 +8,12 @@ from os.path import join
 root_dir = os.path.abspath("..")
 data_dir = join(root_dir, "data")
 processed_data_dir = join(data_dir, "processed")
-filename = "ufo_locations.csv"
+filename = "ufo_locations.pb"
 processed_dataset = join(processed_data_dir, filename)
 
 # S3 config
-bucket_name = "acg-sm-demo-goyder"
-target_key = filename
+bucket_name = os.environ["s3_bucket"]
+target_key = "input_data/train/{}".format(filename)
 
 # Upload
 s3 = boto3.resource("s3")
@@ -22,7 +22,6 @@ try:
     s3.meta.client.head_bucket(Bucket=bucket.name)
 except ClientError:
     bucket.create(CreateBucketConfiguration={
-        "LocationConstraint": "ap-southeast-2"
+        "LocationConstraint": os.environ["s3_region"]
     })
-
 bucket.upload_file(processed_dataset, target_key)

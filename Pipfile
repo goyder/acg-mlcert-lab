@@ -15,6 +15,7 @@ geopandas = "*"
 descartes = "*"
 pygeos = "*"
 boto3 = "*"
+sagemaker = {extras = ["local"],version = "*"}
 
 [requires]
 python_version = "3.8"

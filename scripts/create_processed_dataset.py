@@ -37,6 +37,6 @@ gdf_ufo = (gdf_ufo
 relevant_columns = ["latitude", "longitude"]
 gdf_ufo = gdf_ufo.loc[:, relevant_columns]
 
-# Write to file
+# Write to file as .csv
 filename = "ufo_locations.csv"
 gdf_ufo.to_csv(join(processed_data_dir, filename))
